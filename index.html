@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les huit planètes du système solaire</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=IBM+Plex+Serif:wght@400;500&display=swap">
+<style>
+:root{--bg:#EDF2F6;--grid:#D3DEE7;--ink:#13213B;--mute:#4A5A75;--focus:#2457F5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1726;--grid:#1A2940;--ink:#E6EDF7;--mute:#9AABC4;--focus:#7FA0FF;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1726;--grid:#1A2940;--ink:#E6EDF7;--mute:#9AABC4;--focus:#7FA0FF;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;color:var(--ink);font:400 1.05rem/1.65 "IBM Plex Serif",Georgia,serif}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3,nav,dt{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif}
+nav{display:flex;gap:.25rem;overflow-x:auto;padding:.75rem 0;border-bottom:2px solid var(--ink)}
+nav a{flex:none;padding:.5rem .8rem;color:var(--ink);text-decoration:none;font-weight:500}
+nav a.on{background:var(--ink);color:var(--bg)}
+a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+h1{font-size:clamp(2.4rem,9vw,5rem);line-height:1;font-weight:800;letter-spacing:-.03em;margin:2.5rem 0 1rem;max-width:13ch}
+h2{font-size:clamp(2.2rem,8vw,4rem);line-height:1;font-weight:800;letter-spacing:-.02em;margin:2rem 0 .75rem;display:flex;align-items:center;gap:.9rem}
+h3{font-size:1.25rem;margin:0 0 .3rem}
+.lead{max-width:40rem;color:var(--mute);font-size:1.15rem}
+.dot{display:inline-block;flex:none;border-radius:50%;background:var(--c);border:2px solid var(--ink)}
+.list{margin:2rem 0 1rem;border-top:3px solid var(--ink)}
+.row{display:grid;grid-template-columns:3.4rem 1fr;gap:.2rem 1rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--ink);color:inherit;text-decoration:none}
+.row .sz{display:flex;justify-content:center}
+.row h3{margin:0}
+.row p{margin:0;color:var(--mute);font-size:.95rem}
+.row b{font:500 .95rem "Bricolage Grotesque",sans-serif;grid-column:2}
+.note{color:var(--mute);font-size:.9rem;max-width:40rem}
+dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));margin:1.5rem 0;border-top:3px solid var(--ink)}
+dl div{padding:.6rem .8rem .6rem 0;border-bottom:1px solid var(--ink)}
+dt{font-size:.9rem;color:var(--mute)}
+dd{margin:0;font:800 1.2rem "Bricolage Grotesque",sans-serif}
+.topic{display:grid;grid-template-columns:1fr;gap:.2rem 2rem;padding:1.1rem 0;border-top:1px solid var(--ink)}
+.topic p{margin:0;max-width:42rem}
+@media (min-width:760px){.topic{grid-template-columns:15rem 1fr}.row{grid-template-columns:3.4rem 10rem 1fr;}.row b{grid-column:auto;text-align:right}}
+.page{display:none;padding-bottom:3rem}.page.on{display:block}
+.back{display:inline-block;margin-top:1rem;padding:.5rem 0;color:var(--ink);font:500 1rem "Bricolage Grotesque",sans-serif}
+.pn{display:flex;justify-content:space-between;gap:1rem;border-top:2px solid var(--ink);margin-top:1.5rem;padding-top:1rem;font-family:"Bricolage Grotesque",sans-serif;font-weight:500}
+.pn a{color:var(--ink)}
+footer{border-top:2px solid var(--ink);padding:1rem 0 2rem;color:var(--mute);font-size:.9rem}
+@media (prefers-reduced-motion:no-preference){.page.on{animation:in .3s ease-out}}
+@keyframes in{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav id="nav" aria-label="Pages"></nav>
+<main id="main"></main>
+<footer>Nombres de lunes : chiffres NASA de 2026, qui augmentent avec les découvertes. Pour aller plus loin, vérifie ces informations dans ton manuel de science.</footer>
+</div>
+<script>
+var P=[
+{id:"mercure",n:"Mercure",c:"#8C8C8C",ty:"Rocheuse",k:["4 879 km","58 millions km (0,4 UA)","88 jours","59 jours","−180 à 430 °C","0"],i:"La plus petite et la plus proche du Soleil, couverte de cratères.",t:[
+["À quoi elle ressemble","Un noyau de fer énorme sous une croûte de roche. Presque pas d’atmosphère : elle ne garde pas la chaleur, d’où l’écart de température entre le jour et la nuit."],
+["À retenir","Elle va plus vite que toutes les autres planètes autour du Soleil. Son jour solaire (176 jours terrestres) dure deux fois plus que son année."],
+["Exploration","La sonde MESSENGER l’a orbitée de 2011 à 2015 et a cartographié toute sa surface."]]},
+{id:"venus",n:"Vénus",c:"#E0B24A",ty:"Rocheuse",k:["12 104 km","108 millions km (0,7 UA)","225 jours","243 jours","465 °C","0"],i:"La planète la plus chaude, de taille presque égale à la Terre.",t:[
+["À quoi elle ressemble","Une atmosphère de dioxyde de carbone, 90 fois plus lourde que la nôtre, avec des nuages d’acide sulfurique. L’effet de serre y est extrême, plus chaud que sur Mercure."],
+["À retenir","Elle tourne à l’envers (sens rétrograde) et si lentement qu’un tour sur elle-même (243 jours terrestres) dure plus longtemps que son année. Le Soleil s’y lève à l’ouest."],
+["Exploration","Les sondes soviétiques Venera se sont posées entre 1970 et 1982 et ont fonctionné d’une vingtaine de minutes à un peu plus de deux heures."]]},
+{id:"terre",n:"Terre",c:"#2E7BD6",ty:"Rocheuse",k:["12 742 km","150 millions km (1 UA)","365,25 jours","23 h 56","15 °C en moyenne","1"],i:"La seule planète connue où la vie existe.",t:[
+["À quoi elle ressemble","Environ 71 % de sa surface est couverte d’eau liquide. L’atmosphère contient 78 % d’azote et 21 % d’oxygène."],
+["À retenir","Sa Lune stabilise l’inclinaison de son axe et provoque les marées. Elle est dans la zone habitable : ni trop chaude, ni trop froide pour l’eau liquide."],
+["Histoire","Elle s’est formée il y a environ 4,5 milliards d’années. Les premières traces de vie ont au moins 3,5 milliards d’années."]]},
+{id:"mars",n:"Mars",c:"#C1440E",ty:"Rocheuse",k:["6 779 km","228 millions km (1,5 UA)","687 jours","24 h 37","−63 °C en moyenne","2"],i:"La planète rouge, la plus étudiée après la Terre.",t:[
+["À quoi elle ressemble","Elle est rouge à cause de l’oxyde de fer. Son atmosphère, très fine, est faite à 95 % de dioxyde de carbone. Ses deux lunes, Phobos et Déimos, sont petites et irrégulières."],
+["À retenir","Elle abrite Olympus Mons, le plus haut volcan du système solaire (environ 22 km), et Valles Marineris, un canyon long de plus de 4 000 km. Elle a eu de l’eau liquide dans le passé."],
+["Exploration","Les rovers Curiosity (2012) et Persévérance (2021) cherchent des traces d’anciennes conditions favorables à la vie. L’hélicoptère Ingenuity y a fait le premier vol d’un engin sur une autre planète."]]},
+{id:"jupiter",n:"Jupiter",c:"#C9925B",ty:"Géante gazeuse",k:["139 820 km","778 millions km (5,2 UA)","12 ans","10 heures","−110 °C (nuages)","115"],i:"La plus grosse planète : sa masse dépasse celle de toutes les autres réunies.",t:[
+["À quoi elle ressemble","Elle est faite surtout d’hydrogène et d’hélium, sans surface solide. Ses bandes de nuages colorées sont des vents qui soufflent en sens opposés."],
+["À retenir","La Grande Tache rouge est une tempête plus large que la Terre, observée depuis plus de 150 ans. Ganymède, sa plus grosse lune, est la plus grande lune du système solaire."],
+["Exploration","Galilée a découvert ses quatre grandes lunes (Io, Europe, Ganymède, Callisto) en 1610. La sonde Juno est entrée en orbite autour d’elle en 2016."]]},
+{id:"saturne",n:"Saturne",c:"#E3CF8F",ty:"Géante gazeuse",k:["116 460 km","1,4 milliard km (9,6 UA)","29 ans","10 h 33","−140 °C","293"],i:"La planète aux anneaux, la moins dense du système solaire.",t:[
+["À quoi elle ressemble","Hydrogène et hélium, comme Jupiter. Sa densité est plus faible que celle de l’eau : elle flotterait dans une baignoire assez grande."],
+["À retenir","Ses anneaux sont faits de milliards de morceaux de glace et de roche, étalés sur des dizaines de milliers de km mais souvent épais de seulement quelques dizaines de mètres. Sa lune Titan est la seule du système solaire à avoir une atmosphère épaisse."],
+["Exploration","La sonde Cassini l’a étudiée de 2004 à 2017. Le module Huygens s’est posé sur Titan en 2005."]]},
+{id:"uranus",n:"Uranus",c:"#7FD6DE",ty:"Géante de glaces",k:["50 724 km","2,9 milliards km (19 UA)","84 ans","17 heures","−195 °C","29"],i:"Une planète bleu-vert qui tourne couchée sur le côté.",t:[
+["À quoi elle ressemble","Une atmosphère d’hydrogène, d’hélium et de méthane (qui donne la couleur bleu-vert), au-dessus d’un manteau d’eau, d’ammoniac et de méthane."],
+["À retenir","Son axe est incliné d’environ 98° : elle roule presque sur son orbite, et chaque pôle reste au soleil ou dans la nuit pendant 42 ans. Elle a été découverte en 1781 par William Herschel."],
+["Exploration","Seule la sonde Voyager 2 l’a survolée, en 1986."]]},
+{id:"neptune",n:"Neptune",c:"#3E54E8",ty:"Géante de glaces",k:["49 244 km","4,5 milliards km (30 UA)","165 ans","16 heures","−200 °C","16"],i:"La plus lointaine, balayée par les vents les plus rapides.",t:[
+["À quoi elle ressemble","Elle ressemble à Uranus, avec un bleu plus profond. Ses vents dépassent 2 000 km/h."],
+["À retenir","Elle a été trouvée par le calcul avant d’être vue : Urbain Le Verrier a prédit sa position et elle a été observée en 1846. Sa lune Triton tourne dans le sens inverse de la planète."],
+["Exploration","Voyager 2 est la seule sonde à être passée près d’elle, en 1989."]]}
+];
+var L=["Diamètre moyen","Distance au Soleil","Une année","Un tour sur elle-même","Température","Lunes"];
+function sz(p){return(0.5+parseFloat(p.k[0].replace(/\s/g,""))/139820*2.5).toFixed(2)}
+var nav=document.getElementById("nav"),main=document.getElementById("main");
+nav.innerHTML='<a href="#accueil" data-id="accueil">Accueil</a>'+P.map(function(p){return'<a href="#'+p.id+'" data-id="'+p.id+'">'+p.n+'</a>'}).join("");
+var h='<section class="page" id="p-accueil"><h1>Les huit planètes du système solaire</h1><p class="lead">Huit planètes tournent autour du Soleil. Choisis-en une pour tout savoir sur elle, de la taille à l’exploration.</p><div class="list">';
+P.forEach(function(p){h+='<a class="row" href="#'+p.id+'"><span class="sz"><span class="dot" style="--c:'+p.c+';width:'+sz(p)+'rem;height:'+sz(p)+'rem"></span></span><h3>'+p.n+'</h3><p>'+p.ty+'. '+p.i+'</p><b>'+p.k[1]+'</b></a>'});
+h+='</div><p class="note">Les disques sont classés par taille, mais pas à l’échelle exacte. 1 UA (unité astronomique) est la distance Terre-Soleil. Pluton n’est plus une planète depuis 2006 : c’est une planète naine.</p></section>';
+P.forEach(function(p,j){
+var a=P[j-1],b=P[j+1];
+h+='<section class="page" id="p-'+p.id+'"><a class="back" href="#accueil">← Retour aux planètes</a><h2><span class="dot" style="--c:'+p.c+';width:2.4rem;height:2.4rem"></span>'+p.n+'</h2><p class="lead">'+p.ty+'. '+p.i+'</p><dl>';
+p.k.forEach(function(v,m){h+='<div><dt>'+L[m]+'</dt><dd>'+v+'</dd></div>'});
+h+='</dl>';
+p.t.forEach(function(t){h+='<div class="topic"><h3>'+t[0]+'</h3><p>'+t[1]+'</p></div>'});
+h+='<a class="back" href="#accueil">← Retour aux planètes</a><div class="pn"><span>'+(a?'<a href="#'+a.id+'">← '+a.n+'</a>':'')+'</span><span>'+(b?'<a href="#'+b.id+'">'+b.n+' →</a>':'')+'</span></div></section>'});
+main.innerHTML=h;
+function show(){
+var id=location.hash.slice(1)||"accueil";
+if(!document.getElementById("p-"+id))id="accueil";
+document.querySelectorAll(".page").forEach(function(e){e.classList.toggle("on",e.id==="p-"+id)});
+nav.querySelectorAll("a").forEach(function(a){a.classList.toggle("on",a.dataset.id===id)});
+window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",show);show();
+</script>
+</body>
+</html>
